@@ -69,8 +69,8 @@ func (m *Machine) Execute() {
 				}
 			}
 		}
-		m.ip++
 
+		m.ip++
 	}
 }
 
