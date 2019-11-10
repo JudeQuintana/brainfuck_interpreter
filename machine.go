@@ -1,4 +1,8 @@
-package bf_interpreter
+package main
+
+import (
+	"io"
+)
 
 type Machine struct {
 	code string
@@ -38,8 +42,33 @@ func (m *Machine) Execute() {
 			m.readChar()
 		case '.':
 			m.putChar()
+		case '[':
+			if m.memory[m.dp] == 0 {
+				depth := 1
+				for depth != 0 {
+					m.ip++
+					switch m.code[m.ip] {
+					case '[':
+						depth++
+					case ']':
+						depth--
+					}
+				}
+			}
+		case ']':
+			if m.memory[m.dp] != 0 {
+				depth := 1
+				for depth != 0 {
+					m.ip--
+					switch m.code[m.ip] {
+					case ']':
+						depth++
+					case '[':
+						depth--
+					}
+				}
+			}
 		}
-
 		m.ip++
 
 	}
