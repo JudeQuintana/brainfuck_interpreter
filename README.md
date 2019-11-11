@@ -4,6 +4,8 @@ tutorial: https://thorstenball.com/blog/2017/01/04/a-virtual-brainfuck-machine-i
 
 initial inspiration from: https://github.com/bscharm/brainfuck-interpreter
 
+Build binary: `go build -o machine`
+Run with input: `./machine hello_world.b` or `./machine mandelbrot.b`
 
 Finished:
  - initial brainfuck interpreter (slow version)
